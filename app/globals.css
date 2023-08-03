@@ -2,26 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.bg-novice {
+   background-color:  #EC8682;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.bg-novice-soft {
+    background-color:  #FBEBEC;
+ }
+
+ .bg-novice-hover:hover {
+    background-color:  #F8D2D5;
+ }
+
+.bg-beginner {
+    background-color: #E78B63;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.bg-beginner-soft {
+    background-color: #FBECE4;
+}
+
+.bg-beginner-hover:hover {
+    background-color: #F6D4C3;
+}
+
+.bg-skillful {
+    background-color: #Df9737;
+}
+
+.bg-skillful-soft {
+    background-color: #FCF2D0;
+}
+
+.bg-skillful-hover:hover {
+    background-color: #F7DC96;
+}
+
+.bg-experienced {
+    background-color: #69B87B;
+}
+
+.bg-experienced-soft {
+    background-color: #E9F4ED;
+}
+
+.bg-experienced-hover:hover {
+    background-color: #CCE3D3;
+}
+
+.bg-master {
+    background-color: #9CA1F5;
+}
+
+.bg-master-soft {
+    background-color: #F1F2FE;
+}
+
+.bg-master-hover:hover {
+    background-color: #DCDEFC;
 }
