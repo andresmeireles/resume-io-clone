@@ -4,7 +4,7 @@ import Label from "@/core/components/form/label";
 import { ArrowDown } from "@/core/icons/arrow-down";
 import { useResumeContext } from "../context/resume-context";
 import { ChangeEvent, useState } from "react";
-import { Actions } from "../context/reducer";
+import { Actions } from "../context/actions";
 
 interface PersonDetailBlockProps {
   className?: string;

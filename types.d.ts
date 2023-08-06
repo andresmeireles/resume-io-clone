@@ -7,6 +7,7 @@ export type Order<T> = {
   value: T;
   order: number;
   visible: boolean;
+  hash: string;
 };
 
 export type Employ = {
@@ -22,7 +23,9 @@ export type Education = {
   school: string;
   degree: string;
   startDate: Date;
+  city?: string; 
   endDate?: Date;
+  description?: string;
 };
 
 export type Skill = {
@@ -36,6 +39,13 @@ export enum Proficiency {
   skillful = "skillful",
   experienced = "experienced",
   master = "master"
+}
+
+export type Orders = Order<Employ> | Order<Social> | Order<Education> | Order<Skill>;
+
+export interface TileProps<T> {
+  className?: string;
+  order: Order<T>;
 }
 
 export type ResumeData = {

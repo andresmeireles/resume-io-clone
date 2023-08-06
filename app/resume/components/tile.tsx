@@ -7,11 +7,12 @@ import { Pen } from "@/core/icons/pen";
 import { DeleteFilled } from "@/core/icons/delete-filled";
 import { Order } from "@/types";
 
-export type TileProps = {
+type TileProps = {
   children: ReactNode;
+  className?: string;
   order: Order<any>;
   remove: (order: Order<any>) => void;
-  onClick?: () => void;
+  onClick: () => void;
 };
 
 export default function Tile(props: TileProps) {
@@ -20,6 +21,7 @@ export default function Tile(props: TileProps) {
     order,
     order: { visible },
     onClick,
+    className,
   } = props;
   const [showModal, setShowModal] = useState(false);
 
@@ -30,12 +32,16 @@ export default function Tile(props: TileProps) {
     toggle();
   };
 
+  const edit = () => {
+    onClick();
+    toggle();
+  };
+
   return (
-    <div
-      onClick={onClick}
-      className="flex items-center justify-between p-3 my-4 border rounded-md cursor-pointer border-black-200"
-    >
-      <div>{props.children}</div>
+    <div className={`flex items-center justify-between p-3 my-4 border rounded-md border-black-200 ${className}`}>
+      <div onClick={onClick} className="w-full cursor-pointer">
+        {props.children}
+      </div>
       <div className="flex space-x-5">
         {visible ? <EyeFill /> : <EyeSlashFill />}
         <DotsThree className="cursor-pointer" onClick={toggle} />
@@ -43,7 +49,7 @@ export default function Tile(props: TileProps) {
       <BottomModal isOpen={showModal} close={toggle} className="items-end">
         <div className="flex flex-col justify-end w-full mx-2 align-bottom h-min">
           <div className="bg-white divide-y divide-gray-400 rounded-md">
-            <button className="p-3 align-middle transition hover:text-blue-500">
+            <button onClick={edit} className="p-3 align-middle transition hover:text-blue-500">
               <Pen className="inline mr-4 text-blue-500" />
               Edit
             </button>

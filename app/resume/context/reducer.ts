@@ -1,22 +1,5 @@
-import { ResumeActions } from "./actions";
+import { Actions, ResumeActions } from "./actions";
 import Resume from "./states";
-
-export enum Actions {
-  wantedJob= "wantedJob",
-  firstName= "firstName",
-  lastName= "lastName",
-  email= "email",
-  phone= "phone",
-  city= "city",
-  country= "country",
-  address= "address",
-  postalCode= "postalCode",
-  drivingLicense= "drivingLicense",
-  nationality= "nationality",
-  placeOfBirth= "placeOfBirth",
-  dateOfBirth= "dateOfBirth",
-  summary = "summary",
-};
 
 export default function reducer(state: Resume, act: ResumeActions): Resume {
   const { value, action } = act;
@@ -50,18 +33,15 @@ export default function reducer(state: Resume, act: ResumeActions): Resume {
       return state.copyWith({ dateOfBirth: value });
     case Actions.summary:
       return state.copyWith({ summary: value });
-    case 'employ': {
-      console.log("exec employ");
-      const s = state.copyWith({ employ: [...value] });
-      console.log(s);
-      return s;
-    }
-    case 'education':
+    case "employ":
+      return state.copyWith({ employ: [...value] });
+    case "education":
       return state.copyWith({ education: [...value] });
-    case 'skill':
+    case "skill":
       return state.copyWith({ skill: [...value] });
+    case "social":
+      return state.copyWith({ social: [...value] });
     default:
       return state;
   }
 }
-

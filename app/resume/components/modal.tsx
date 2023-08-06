@@ -1,5 +1,6 @@
 import RoundedButton from "@/core/components/button/rounded-button";
 import { Add } from "@/core/icons/add";
+import { ArrowBack } from "@/core/icons/arrow-back";
 import { ReactNode } from "react";
 
 interface ModalProps {
@@ -10,29 +11,20 @@ interface ModalProps {
   children: ReactNode;
 }
 
-export default function Modal({
-  isOpen,
-  onClose,
-  title,
-  subtitle,
-  children,
-}: ModalProps) {
+export default function Modal({ isOpen, onClose, title, subtitle, children }: ModalProps) {
   if (!isOpen) return null;
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center overflow-y-auto ${
+      className={`fixed inset-0 z-10 flex items-center justify-center xl:overflow-hidden lg:overflow-hidden md:overflow-hidden overflow-y-auto ${
         isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
       } transition-opacity duration-300 ease-in-out`}
     >
-      <div className="w-screen h-full p-6 bg-white rounded-lg">
+      <div className="w-screen h-full p-6 bg-white rounded-lg ">
         <div className="grid grid-cols-3 mb-4">
           <div>
-            <RoundedButton
-              onClick={onClose}
-              className="text-blue-400 bg-blue-100"
-            >
-              <Add />
+            <RoundedButton onClick={onClose} className="text-center text-blue-400 bg-blue-100">
+              <ArrowBack />
             </RoundedButton>
           </div>
           <div className="text-center">

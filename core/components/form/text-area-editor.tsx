@@ -8,5 +8,5 @@ interface TextEdtitorProps {
 }
 
 export default function TextAreaEditor(props: TextEdtitorProps) {
-  return <ReactQuill theme="snow" value={props.value} onChange={props.setValue} />;
+  return <ReactQuill className="-z-50" theme="snow" value={props.value} onChange={props.setValue} />;
 }

@@ -9,7 +9,7 @@ export default function Avatar(props: AvatarProps) {
   return (
     <div className={props.className}>
       <div className="flex">
-        <div className="relative w-12 h-12 overflow-hidden">
+        <div className="relative w-12 h-12 overflow-hidden -z-10">
           <img
             className="absolute top-0 left-0 object-cover w-full h-full"
             src="https://www.google.com/logos/google.jpg"

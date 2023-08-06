@@ -1,4 +1,4 @@
-import { ResumeData } from "@/types";
+import { Order, ResumeData } from "@/types";
 
 export default class Resume {
   constructor(private _resume: ResumeData) {}
@@ -67,6 +67,20 @@ export default class Resume {
     if (this._resume.social.length !== 0) total++;
 
     return total;
+  }
+
+  reorder(order: Order<any>[],  currentIndex: number, newIndex: number): Order<any>[] {
+    const current = order.find((e) => e.order === currentIndex);
+    const replace = order.find((e) => e.order === newIndex);
+    
+    if (current === undefined || replace === undefined) return order;
+
+    const removeOrders = order.filter((e) => e.order !== currentIndex && e.order !== newIndex);
+
+    const currentOrder = {...current, order: newIndex};
+    const replaceOrder = { ...replace, order: currentIndex};
+
+    return [...removeOrders, currentOrder, replaceOrder];
   }
 
   copyWith(data: Partial<ResumeData>): Resume {

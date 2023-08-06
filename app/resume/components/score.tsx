@@ -6,7 +6,7 @@ export default function Score() {
   const { state } = useResumeContext();
 
   return (
-    <div className={`py-4 transition-all sticky duration-1000 z-50 top-0 container bg-white w-full`}>
+    <div className={`py-4 z-10 transition-all sticky duration-1000 top-0 container bg-white w-full`}>
       <div className="my-2">
         <span className="px-3 py-1 text-xs font-semibold text-white bg-green-500 border border-green-400 rounded-md">
           {state.completePercentage.toString()} %

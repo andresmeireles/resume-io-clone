@@ -1,6 +1,6 @@
 import TextAreaEditor from "@/core/components/form/text-area-editor";
 import { useResumeContext } from "../context/resume-context";
-import { Actions } from "../context/reducer";
+import { Actions } from "../context/actions";
 
 export default function ProfessionalSummaryBlock() {
   const { state, dispatch } = useResumeContext();

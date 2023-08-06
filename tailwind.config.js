@@ -2,6 +2,8 @@
 module.exports = {
   safelist: [
     'invisible',
+    'hidden',
+    'block',
     'border-red-300',
     'w-0',
     'w-10',
